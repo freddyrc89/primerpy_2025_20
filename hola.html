@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad</title>
+    <title>login </title>
 </head>
 <body>
-    <p>Hola, soy una linea y mi creador es <b>Freddy</b>. Ahora sigues tú</p>
-    <button>Hola, soy un boton y mi creador es <b>GPT4-o</b>. Ahora sigues tú</button>
-     Hola, soy una linea y mi credora es <h3>Jennifer</h3>.
-    <p>Hola , soy otra linea y era mentira lo de la funcionabilidad critica jijija.</p>    
+   <h2>Iniciar Sesión</h2>
+
+  <form action="/login" method="POST">
+    <label for="usuario">Usuario:</label><br>
+    <input type="text" id="usuario" name="usuario" required><br><br>
+
+    <label for="password">Contraseña:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <input type="submit" value="Entrar">
+  </form>
+  
 </body>
 </html>
+
+
+
 
