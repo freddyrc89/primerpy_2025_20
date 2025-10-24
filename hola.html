@@ -4,13 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actividad</title>
+    <style>
+        .modal{
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0; 
+            top: 0;
+            width: 100%; 
+            height: 100%;
+            background-color: antiquewhite;
+        }
+        .modal-content{
+            background: white;
+            margin: 10%;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: left;
+        }
+        .close{
+            float: right;
+            font-size: 8px 12px;
+            background-color: cyan;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: burlywood;
+        }
+    </style>
 </head>
 <body>
     <p>Hola, soy una linea y mi creador es <b>Freddy</b>. Ahora sigues tú</p>
     <button>Hola, soy un boton y mi creador es <b>GPT4-o</b>. Ahora sigues tú</button>
      Hola, soy una linea y mi credora es <h3>Jennifer</h3>.
     <p>Hola , soy otra linea y era mentira lo de la funcionabilidad critica jijija.</p>
+    <b>La disciplina y el orden son importantes en los proyectos de TI</b><br><br>
     <b>La <i>disciplina y el orden</i>son importantes en los proyectos de TI</b>
+    <button id="btnEncuesta">Abrir Encuesta</button>
+    <!--modal-->
+    <div id="modalEncuesta" class="modal">
+        <div class="modal-content">
+            <span class="close" id="cerrarModal">&times;</span>
+            <h3>Encuesta</h3>
+            <form id="formEncuesta">
+                <label>1. ¿Que te parece el nuevo sistema que estamos usando?</label><br>
+                <input type="text" name="pregunta1" required><br><br>
+                <label>2. ¿Que mejorarias para que el sistema no se te sean tan dificil de sobrellevar?</label><br>
+                <input type="text" name="pregunta2" required><br><br>
+                <button type="submit">Confirmar</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const modal = document.getElementById('modalEncuesta');
+        const btn = document.getElementById('btnEncuesta');
+        const cerrar = document.getElementById('cerrarModal');
+        const form = document.getElementById('formEncuesta');
+        btn.onclick = () => modal.style.display = 'block';
+        cerrar.onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => {if (e.target == modal) modal.style.display = 'none';}
+        form. onsubmit = (e)=>{
+            e.preventDefault();
+            alert("Gracias por llenar el formulario");
+            modal.style.display = 'none';
+            form.reset();
+        }
+    </script>
 
 </body>
 </html>
