@@ -6,8 +6,27 @@
     <title>Actividad</title>
 </head>
 <body>
+    <h1>🌟 Actividad Interactiva 🌟</h1>
+
     <p>Hola, soy una línea y mi creador es <b>Freddy</b>. Ahora sigues tú.</p>
-    <button>Hola, soy un botón y mi creador es <b>GPT-4o</b>. Ahora sigues tú.</button>
+    <button id="boton">Hola, soy un botón y mi creador es <b>GPT-4o</b>. ¡Haz clic en mí!</button>
+    <p>Hola, soy una línea y mi creadora es <h3>Jennifer</h3>.</p>
     <p>Hola, soy otra línea y era mentira lo de la funcionalidad crítica jijija.</p>
+
+    <div id="mensajes"></div>
+
+    <script>
+        const boton = document.getElementById("boton");
+        const mensajes = document.getElementById("mensajes");
+        let contador = 1;
+
+        boton.addEventListener("click", () => {
+            const nuevoMensaje = document.createElement("p");
+            nuevoMensaje.classList.add("mensaje");
+            nuevoMensaje.textContent = `✨ Línea dinámica #${contador}: creada por ti a las ${new Date().toLocaleTimeString()}`;
+            mensajes.appendChild(nuevoMensaje);
+            contador++;
+        });
+    </script>
 </body>
 </html>
