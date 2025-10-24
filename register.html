@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro - PrimerPy</title>
+    <style>
+        *{box-sizing:border-box}
+        body{
+            font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+            background:#5599ff;
+            color:#111;
+            margin:0;
+            padding:32px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            min-height:100vh;
+        }
+        .card{
+            width:100%;
+            max-width:480px;
+            background:#ffffff;
+            border-radius:12px;
+            box-shadow:0 6px 20px rgba(16,24,40,.08);
+            padding:28px;
+        }
+        h1{margin:0 0 8px;font-size:20px}
+        p.lead{margin:0 0 20px;color:#6c757d}
+        form{display:grid;gap:12px}
+        label{display:block;font-size:13px;color:#333;margin-bottom:6px}
+        input[type="text"],input[type="email"],input[type="password"],input[type="date"]{
+            width:100%;
+            padding:10px 12px;
+            border:1px solid #e6e9ef;
+            border-radius:8px;
+            font-size:14px;
+        }
+        .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .actions{display:flex;gap:10px;align-items:center;margin-top:6px}
+        button{
+            background:#0b5ed7;
+            color:#fff;
+            border:none;
+            padding:10px 14px;
+            border-radius:8px;
+            font-weight:600;
+            cursor:pointer;
+        }
+        button.secondary{background:#e9eefb;color:#0b5ed7;font-weight:600}
+        button.secondary:hover{background:#0b5ed7; color:#e9eefb;}
+
+    </style>
+
+</head>
+<body>
+    <main class="card" role="main">
+        <h1>Crear cuenta</h1>
+        <p class="lead">Regístrate</p>
+
+        <form id="registerForm" novalidate>
+            <div>
+                <label for="name">Nombre completo</label>
+                <input id="name" name="name" type="text" placeholder="Ej. Diego Canavire" required />
+            </div>
+
+            <div>
+                <label for="email">Correo electrónico</label>
+                <input id="email" name="email" type="email" placeholder="tu@ejemplo.com" required />
+            </div>
+
+            <div class="row">
+                <div>
+                    <label for="password">Contraseña</label>
+                    <input id="password" name="password" type="password" placeholder="Mín. 8 caracteres" required />
+                </div>
+                <div>
+                    <label for="password2">Confirmar contraseña</label>
+                    <input id="password2" name="password2" type="password" placeholder="Repite la contraseña" required />
+                </div>
+            </div>
+
+            <div>
+                <label for="birth">Fecha de nacimiento <span class="muted">(opcional)</span></label>
+                <input id="birth" name="birth" type="date" />
+            </div>
+
+            <div class="actions">
+                <button type="submit">Crear cuenta</button>
+                <a href="hola.html"><button type="button" class="secondary">Volver</button></a>
+            </div>
+
+        </form>
+    </main>
+</body>
+</html>
