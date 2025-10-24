@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Hola Mundo</title>
+    <style>
+        #miBoton {
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #fffb00;
+        }
+    </style>
 </head>
 <body>
     <p>Hola, soy una linea y mi creador es <b>Freddy</b>. Ahora sigues tú.</p>
+    <button id="miBoton">Haz clic</button>
+    <script>
+    document.getElementById('miBoton').addEventListener('click', function() {
+        alert('Has hecho clic en el botón.');
+    });
+    </script>
 </body>
 </html>
