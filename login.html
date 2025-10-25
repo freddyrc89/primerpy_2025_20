@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - PrimerPy</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-body">
+    <main class="login-card" role="main" data-aos="zoom-in">
+        <h1 class="login-h1">Iniciar Sesión</h1>
+        <p class="login-lead">Bienvenido de vuelta</p>
+
+        <form id="loginForm" class="login-form" novalidate>
+            <div class="form-group" data-aos="fade-right" data-aos-delay="100">
+                <label for="email" class="login-label">Correo electrónico</label>
+                <input id="email" name="email" type="email" class="login-input" placeholder="tu@ejemplo.com" required />
+            </div>
+
+            <div class="form-group" data-aos="fade-left" data-aos-delay="150">
+                <label for="password" class="login-label">Contraseña</label>
+                <input id="password" name="password" type="password" class="login-input" placeholder="Tu contraseña" required />
+            </div>
+
+            <div class="login-actions">
+                <button type="submit" class="login-button" data-aos="zoom-in" data-aos-delay="250">Ingresar</button>
+                <a href="index.html"><button type="button" class="login-button secondary" data-aos="zoom-in" data-aos-delay="300">Volver al Inicio</button></a>
+            </div>
+        </form>
+    </main>
+    <script src="js/scripts.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
