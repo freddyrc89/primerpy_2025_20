@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Inscripción</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 30px;
+    }
+
+    form {
+      background-color: #fff;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Botón de regreso al index */
+    .boton-index {
+      display: block;
+      text-align: center;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .boton-index:hover {
+      background-color: #1e7e34;
+    }
+
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Formulario de Inscripción</h1>
+
+  <form action="#" method="POST">
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" placeholder="Ej: juan@gmail.com" required>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="Ej: 987654321" required>
+
+    <label for="fecha">Fecha de nacimiento:</label>
+    <input type="date" id="fecha" name="fecha" required>
+
+    <label for="genero">Género:</label>
+    <select id="genero" name="genero" required>
+      <option value="">Selecciona una opción</option>
+      <option value="masculino">Masculino</option>
+      <option value="femenino">Femenino</option>
+      <option value="otro">Otro</option>
+    </select>
+
+    <label for="comentarios">Comentarios o motivación:</label>
+    <textarea id="comentarios" name="comentarios" rows="4" placeholder="Cuéntanos un poco sobre ti..."></textarea>
+
+    <button type="submit">Enviar inscripción</button>
+    
+    <a href="index.html" class="boton-index">Volver al inicio</a>
+  </form>
+
+  <footer>
+    <p>© 2025 Formulario de Inscripción | Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>
+
