@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Perfil - PrimerPy</title>
+    <style>
+        /* Estilos sencillos, sin JS */
+        *{box-sizing:border-box}
+        body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111;margin:0;padding:24px}
+        .container{max-width:680px;margin:24px auto;padding:20px;border:1px solid #e6e9ef;border-radius:8px}
+        .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+        h1{font-size:20px;margin:0}
+        .meta{color:#666;font-size:14px}
+        .profile{display:grid;grid-template-columns:1fr 300px;gap:18px;align-items:start}
+        .card{padding:14px;border:1px solid #f0f0f0;border-radius:8px;background:#fafafa}
+        dl{margin:0}
+        dt{font-weight:600;color:#333}
+        dd{margin:6px 0 14px;color:#222}
+        details summary{cursor:pointer;padding:8px 10px;border-radius:6px;background:#f8f9fb;border:1px solid #e6e9ef}
+        form{margin-top:10px}
+        label{display:block;font-size:13px;margin-bottom:6px;color:#333}
+        input{width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px}
+        .actions{display:flex;gap:8px}
+        button{background:#0b5ed7;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer}
+        a.button{display:inline-block;padding:8px 12px;border-radius:6px;background:#eee;color:#0b5ed7;text-decoration:none}
+        @media(max-width:760px){.profile{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <div class="container" role="main">
+        <div class="header">
+            <div>
+                <h1>Tu perfil</h1>
+                <div class="meta">Información de tu cuenta</div>
+            </div>
+            <div class="actions">
+                <a class="button" href="hola.html">Inicio</a>
+                <a class="button" href="register.html">Registrar</a>
+            </div>
+        </div>
+
+        <div class="profile">
+            <section class="card" aria-labelledby="datos-titulo">
+                <h2 id="datos-titulo" style="margin-top:0;font-size:16px">Datos</h2>
+                <dl>
+                    <dt>Nombre</dt>
+                    <dd id="displayName">-</dd>
+
+                    <dt>Correo</dt>
+                    <dd id="displayEmail">-</dd>
+
+                    <dt>Fecha de nacimiento</dt>
+                    <dd id="displayBirth">-</dd>
+                </dl>
+            </section>
+
+            <aside>
+                <details>
+                    <summary>Editar perfil</summary>
+                    <form action="#" method="post" aria-label="Editar perfil" id="editForm">
+                        <label for="editName">Nombre completo</label>
+                        <input id="editName" name="name" type="text" value="" required />
+
+                        <label for="editBirth">Fecha de nacimiento</label>
+                        <input id="editBirth" name="birth" type="date" value="" />
+
+                        <div class="actions">
+                            <button type="submit">Guardar</button>
+                            <a class="button" href="#">Cancelar</a>
+                        </div>
+                    </form>
+                </details>
+
+                <div style="margin-top:14px" class="card">
+                    <h3 style="margin:0 0 8px">Seguridad</h3>
+                    <p style="margin:0 0 8px;color:#555">Cambia tu contraseña desde la página de configuración (no implementado).</p>
+                    <a class="button" href="#">Cambiar contraseña</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="profile.js"></script>
+</body>
+</html>
