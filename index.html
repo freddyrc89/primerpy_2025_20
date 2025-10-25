@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Inicio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <main class="card" role="main" aria-labelledby="titulo">
+    <main class="card" role="main" aria-labelledby="titulo" data-aos="fade-up">
         <div class="brand">
             <div>
                 <h1 id="titulo">Bienvenido</h1>
@@ -17,18 +17,36 @@
         </div>
 
         <div class="actions" role="navigation" aria-label="Opciones principales">
-            <a class="btn btn-primary" href="hola.html" title="Ir a Hola">
+            <a class="btn btn-primary" href="hola.html" title="Ir a Hola" data-aos="fade-right" data-aos-delay="100">
                 <span aria-hidden="true" style="font-size:18px;line-height:1">👋</span>
-                <span>Hola</span>
+                <span>Página de Test</span>
             </a>
 
-            <a class="btn btn-outline" href="register.html" title="Ir a Register">
-                <span>Register</span>
+            <a class="btn btn-outline" href="register.html" title="Ir a Register" data-aos="fade-up" data-aos-delay="200">
+                <span>Registrarse</span>
             </a>
-            
+
+            <a class="btn btn-ghost" href="login.html" title="Ir a Login" data-aos="fade-left" data-aos-delay="300">
+                <span>Iniciar Sesión</span>
+            </a>
         </div>
 
-    <p class="note">Puedes registrarte o iniciar sesión usando los botones. También puedes entrar a "Hola".</p>
+        <div class="features">
+            <div class="feature" data-aos="zoom-in" data-aos-delay="400">
+                <h4>🚀 Rápido</h4>
+                <p>Navegación instantánea entre páginas</p>
+            </div>
+            <div class="feature" data-aos="zoom-in" data-aos-delay="500">
+                <h4>🎨 Moderno</h4>
+                <p>Diseño contemporáneo y responsive</p>
+            </div>
+            <div class="feature" data-aos="zoom-in" data-aos-delay="600">
+                <h4>🔒 Seguro</h4>
+                <p>Protección de datos garantizada</p>
+            </div>
+        </div>
+
+    <p class="note">Explora la página de test, regístrate o inicia sesión según tus necesidades.</p>
     </main>
     <script src="js/scripts.js"></script>
 </body>

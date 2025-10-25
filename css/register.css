@@ -1,0 +1,203 @@
+/* Estilos específicos para register.html */
+*{box-sizing:border-box}
+body{
+    font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color:#111;
+    margin:0;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    animation: gradientMove 15s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.register-card{
+    width:100%;
+    max-width:500px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius:20px;
+    box-shadow:0 20px 60px rgba(16,24,40,.15);
+    padding:2.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: cardAppear 0.6s ease;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.register-h1{
+    margin:0 0 0.5rem;
+    font-size:2rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+.register-lead{
+    margin:0 0 2rem;
+    color:#6c757d;
+    text-align: center;
+    font-size: 1.1rem;
+}
+.register-form{
+    display:grid;
+    gap:1.2rem;
+}
+.register-label{
+    display:block;
+    font-size:0.9rem;
+    color:#333;
+    margin-bottom:0.5rem;
+    font-weight: 600;
+}
+.register-input[type="text"],
+.register-input[type="email"],
+.register-input[type="password"],
+.register-input[type="date"]{
+    width:100%;
+    padding:14px 16px;
+    border:2px solid #e6e9ef;
+    border-radius:12px;
+    font-size:1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.register-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1rem;
+}
+
+.actions{
+    display:flex;
+    gap:1rem;
+    align-items:center;
+    margin-top:1.5rem;
+}
+
+.register-button{
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color:#fff;
+    border:none;
+    padding:14px 24px;
+    border-radius:12px;
+    font-weight:600;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    font-size: 1rem;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.register-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.register-button:hover::before {
+    left: 100%;
+}
+
+.register-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.register-button:active {
+    transform: translateY(-1px);
+}
+
+.register-button.secondary{
+    background: transparent;
+    color:#667eea;
+    border: 2px solid #667eea;
+    font-weight:600;
+    box-shadow: none;
+}
+
+.register-button.secondary:hover{
+    background:#667eea;
+    color:#fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group .password-strength {
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.password-strength-bar {
+    height: 100%;
+    width: 0%;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.weak { background: #ff4757; width: 33%; }
+.medium { background: #ffa502; width: 66%; }
+.strong { background: #2ed573; width: 100%; }
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .register-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .row {
+        grid-template-columns: 1fr;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    .register-button {
+        width: 100%;
+    }
+}

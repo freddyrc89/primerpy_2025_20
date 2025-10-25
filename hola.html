@@ -3,30 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Página de Test - Hola</title>
+    <link rel="stylesheet" href="css/hola.css">
 </head>
 <body>
-    <p>Hola, soy una linea y mi creador es <b>Freddy</b>. Ahora sigues tú</p>
-    <button>Hola, soy un boton y mi creador es <b>GPT4-o</b>. Ahora sigues tú</button>
-     Hola, soy una linea y mi credora es <h3>Jennifer</h3>.
-    <p>Hola , soy otra linea y era mentira lo de la funcionabilidad critica jijija.</p>
-    <b>La <i>disciplina y el orden</i>son importantes en los proyectos de TI</b>
-    <button id="btnEncuesta">Abrir Encuesta</button>
-    <!--modal-->
+    <div data-aos="fade-up">
+        <p>Hola, soy una linea y mi creador es <b>Freddy</b>. Ahora sigues tú</p>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="100">
+        <button>Hola, soy un boton y mi creador es <b>GPT4-o</b>. Ahora sigues tú</button>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="200">
+        <p>Hola, soy una linea y mi credora es <span class="nombre-destacado">Jennifer</span>.</p>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="300">
+        <p>Hola, soy otra linea y era mentira lo de la funcionabilidad critica jijija.</p>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="400">
+        <b>La <i>disciplina y el orden</i> son importantes en los proyectos de TI</b>
+    </div>
+
+    <div data-aos="zoom-in" data-aos-delay="500">
+        <button id="btnEncuesta">Abrir Encuesta de Test</button>
+    </div>
+    
+    <!-- Modal para encuesta de test -->
     <div id="modalEncuesta" class="modal">
         <div class="modal-content">
             <span class="close" id="cerrarModal">&times;</span>
-            <h3>Encuesta</h3>
+            <h3>Encuesta de Test</h3>
+            <p>Esta es una encuesta de prueba para demostrar el funcionamiento del modal.</p>
             <form id="formEncuesta">
-                <label>1. ¿Que te parece el nuevo sistema que estamos usando?</label><br>
+                <label>1. ¿Qué te parece esta página de test?</label><br>
                 <input type="text" name="pregunta1" required><br><br>
-                <label>2. ¿Que mejorarias para que el sistema no se te sean tan dificil de sobrellevar?</label><br>
+                <label>2. ¿Qué funcionalidad te gustaría probar?</label><br>
                 <input type="text" name="pregunta2" required><br><br>
-                <button type="submit">Confirmar</button>
+                <button type="submit">Enviar Respuestas</button>
             </form>
         </div>
     </div>
+
+    <div data-aos="fade-up" data-aos-delay="600" style="margin-top: 2rem; text-align: center;">
+        <a href="index.html" style="color: #667eea; text-decoration: none; font-weight: 600;">
+            ← Volver al Inicio
+        </a>
+    </div>
+
     <script src="js/scripts.js"></script>
 </body>
 </html>

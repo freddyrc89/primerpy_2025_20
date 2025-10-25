@@ -4,47 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro - PrimerPy</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/register.css">
 </head>
 <body class="register-body">
-    <main class="register-card" role="main">
+    <main class="register-card" role="main" data-aos="zoom-in">
         <h1 class="register-h1">Crear cuenta</h1>
-        <p class="register-lead">Regístrate</p>
+        <p class="register-lead">Únete a nuestra comunidad</p>
 
         <form id="registerForm" class="register-form" novalidate>
-            <div>
+            <div class="form-group" data-aos="fade-right" data-aos-delay="100">
                 <label for="name" class="register-label">Nombre completo</label>
                 <input id="name" name="name" type="text" class="register-input" placeholder="Ej. Diego Canavire" required />
             </div>
 
-            <div>
+            <div class="form-group" data-aos="fade-left" data-aos-delay="150">
                 <label for="email" class="register-label">Correo electrónico</label>
                 <input id="email" name="email" type="email" class="register-input" placeholder="tu@ejemplo.com" required />
             </div>
 
             <div class="row">
-                <div>
+                <div class="form-group" data-aos="fade-right" data-aos-delay="200">
                     <label for="password" class="register-label">Contraseña</label>
                     <input id="password" name="password" type="password" class="register-input" placeholder="Mín. 8 caracteres" required />
                 </div>
-                <div>
+                <div class="form-group" data-aos="fade-left" data-aos-delay="200">
                     <label for="password2" class="register-label">Confirmar contraseña</label>
                     <input id="password2" name="password2" type="password" class="register-input" placeholder="Repite la contraseña" required />
                 </div>
             </div>
 
-            <div>
+            <div class="form-group" data-aos="fade-up" data-aos-delay="250">
                 <label for="birth" class="register-label">Fecha de nacimiento <span class="muted">(opcional)</span></label>
                 <input id="birth" name="birth" type="date" class="register-input" />
             </div>
 
             <div class="actions">
-                <button type="submit" class="register-button">Crear cuenta</button>
-                <a href="hola.html"><button type="button" class="register-button secondary">Volver</button></a>
+                <button type="submit" class="register-button" data-aos="zoom-in" data-aos-delay="300">Crear cuenta</button>
+                <a href="index.html"><button type="button" class="register-button secondary" data-aos="zoom-in" data-aos-delay="350">Volver al Inicio</button></a>
             </div>
 
         </form>
     </main>
     <script src="js/scripts.js"></script>
+    <script src="js/register.js"></script>
 </body>
 </html>
