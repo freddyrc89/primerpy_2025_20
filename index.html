@@ -106,6 +106,31 @@
         .btn:disabled{opacity:0.6; cursor:default; transform:none}
 
         .note{margin-top:1rem; color:var(--muted); font-size:0.92rem}
+        
+        /* Barra inferior de contacto */
+        .bottom-bar{
+            position:fixed;
+            left:0;right:0;bottom:0;
+            background:#0f3b6d;
+            color:#fff;
+            padding:10px 16px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:12px;
+            box-shadow:0 -6px 20px rgba(11,40,80,0.12);
+            z-index:1000;
+            font-size:14px;
+        }
+        .bottom-bar .inner{max-width:980px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+        .contact-list{display:flex;gap:12px;align-items:center}
+        .contact-item{display:inline-flex;gap:8px;align-items:center;color:#fff;text-decoration:none}
+        .contact-item svg{width:18px;height:18px;opacity:0.95}
+        .bottom-bar .small{opacity:0.9;font-size:13px}
+        @media(max-width:560px){
+            .bottom-bar{font-size:13px;padding:10px}
+            .bottom-bar .inner{flex-direction:column;align-items:center}
+        }
         @media (max-width:520px){
             .card{padding:1.25rem}
             .actions{flex-direction:column}
@@ -139,5 +164,31 @@
 
     <p class="note">Puedes registrarte o iniciar sesión usando los botones. También puedes entrar a "Hola".</p>
     </main>
+
+        <footer class="bottom-bar" role="contentinfo" aria-label="Barra de contacto">
+        <div class="inner">
+            <div class="contact-list">
+                <a class="contact-item" href="mailto:contacto@primerpy.example" title="Enviar email">
+                    <!-- mail icon -->
+                    <svg viewbox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M3 7.5V18a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 6.5l-9 6-9-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <span>contacto@primerpy.example</span>
+                </a>
+
+                <a class="contact-item" href="https://wa.me/1234567890" target="_blank" rel="noopener" title="Abrir WhatsApp">
+                    <!-- whatsapp icon -->
+                    <svg viewbox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.1a9 9 0 1 0-2.5 6.1L21 21l-1.8-5.5A8.9 8.9 0 0 0 21 12.1z" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>WhatsApp</span>
+                </a>
+
+                <a class="contact-item" href="contact.html" title="Contacto">
+                    <!-- contact page icon -->
+                    <svg viewbox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3" stroke="#fff" stroke-width="1.2"/><path d="M4 20a8 8 0 0 1 16 0" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Contacto</span>
+                </a>
+            </div>
+
+            <div class="small">© PrimerPy — soporte: +1 234 567 890</div>
+        </div>
+    </footer>
 </body>
 </html>
