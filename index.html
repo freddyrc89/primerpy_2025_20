@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Inicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#f4f7fb;
+            --card:#ffffff;
+            --primary:#0f3b6d;
+            --accent:#0b84ff;
+            --muted:#6b7280;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+            background:linear-gradient(180deg,#eef4fb 0%,var(--bg) 100%);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:2rem;
+            color:#111827;
+        }
+
+        .card{
+            width:100%;
+            max-width:720px;
+            background:var(--card);
+            border-radius:12px;
+            padding:2rem;
+            box-shadow:0 10px 30px rgba(16,24,40,0.08);
+            border:1px solid rgba(16,24,40,0.04);
+            text-align:center;
+        }
+
+        .brand{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:1rem;
+            margin-bottom:0.75rem;
+        }
+        .logo{
+            width:56px;
+            height:56px;
+            border-radius:12px;
+            background:linear-gradient(135deg,var(--primary),var(--accent));
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            font-weight:700;
+            font-size:1.05rem;
+            box-shadow:0 8px 20px rgba(11,40,80,0.12);
+        }
+
+        h1{margin:0; font-size:1.4rem; color:var(--primary)}
+        p.lead{margin:0.4rem 0 1.4rem; color:var(--muted)}
+
+        .actions{
+            display:flex;
+            gap:0.8rem;
+            justify-content:center;
+            flex-wrap:wrap;
+            margin-top:0.6rem;
+        }
+
+        .btn{
+            appearance:none;
+            border:0;
+            padding:0.9rem 1.2rem;
+            border-radius:10px;
+            cursor:pointer;
+            font-weight:600;
+            display:inline-flex;
+            align-items:center;
+            gap:0.6rem;
+            transition:transform .12s ease, box-shadow .12s ease;
+            text-decoration:none;
+        }
+
+        .btn svg{width:18px;height:18px;display:inline-block}
+
+        .btn-primary{
+            background:linear-gradient(90deg,var(--primary),var(--accent));
+            color:white;
+            box-shadow:0 10px 22px rgba(11,40,80,0.10);
+        }
+        .btn-outline{
+            background:transparent;
+            color:var(--primary);
+            border:1.5px solid rgba(15,59,109,0.09);
+        }
+        .btn-ghost{
+            background:transparent;
+            color:var(--primary);
+            border:1.5px solid rgba(16,24,40,0.06);
+        }
+
+        .btn:hover:not(:disabled){transform:translateY(-4px)}
+        .btn:active:not(:disabled){transform:translateY(-1px)}
+        .btn:disabled{opacity:0.6; cursor:default; transform:none}
+
+        .note{margin-top:1rem; color:var(--muted); font-size:0.92rem}
+        @media (max-width:520px){
+            .card{padding:1.25rem}
+            .actions{flex-direction:column}
+            .btn{width:100%; justify-content:center}
+        }
+    </style>
+</head>
+<body>
+    <main class="card" role="main" aria-labelledby="titulo">
+        <div class="brand">
+            <div>
+                <h1 id="titulo">Bienvenido</h1>
+                <p class="lead">Elige una opción para continuar</p>
+            </div>
+        </div>
+
+        <div class="actions" role="navigation" aria-label="Opciones principales">
+            <a class="btn btn-primary" href="hola.html" title="Ir a Hola">
+                <span aria-hidden="true" style="font-size:18px;line-height:1">👋</span>
+                <span>Hola</span>
+            </a>
+
+            <a class="btn btn-outline" href="register.html" title="Ir a Register">
+                <span>Register</span>
+            </a>
+
+            <a class="btn btn-ghost" href="login.html" title="Ir a Login">
+                <span>Login</span>
+            </a>
+            <a class="btn btn-outline" href="imagen.html" title="Ver imagen y texto">
+        <span>Imagen + Texto</span>
+            </a>
+        </div>
+
+    <p class="note">Puedes registrarte o iniciar sesión usando los botones. También puedes entrar a "Hola".</p>
+    </main>
+</body>
+</html>
