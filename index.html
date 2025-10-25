@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Inicio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Estilos principales y variables CSS:
+        - Modifica las variables en :root para cambiar colores globales (--primary, --accent, --bg, etc.).
+        - Mantén aquí reglas compartidas para header, botones y layout central.
+    -->
     <style>
         :root{
             --bg:#f4f7fb;
@@ -20,11 +24,24 @@
             font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
             background:linear-gradient(180deg,#eef4fb 0%,var(--bg) 100%);
             display:flex;
+            flex-direction:column;
             align-items:center;
-            justify-content:center;
+            justify-content:flex-start;
             padding:2rem;
             color:#111827;
         }
+
+        /* Header / navigation */
+        .header{
+            width:100%;
+            max-width:720px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:1rem;
+            margin-bottom:1rem;
+        }
+        .nav{display:flex;gap:0.6rem;align-items:center}
 
         .card{
             width:100%;
@@ -45,17 +62,19 @@
             margin-bottom:0.75rem;
         }
         .logo{
-            width:56px;
-            height:56px;
-            border-radius:12px;
-            background:linear-gradient(135deg,var(--primary),var(--accent));
+            /* Mostrar solo texto (sin el cuadro de fondo) */
             display:inline-flex;
             align-items:center;
             justify-content:center;
-            color:white;
+            background:transparent;
+            box-shadow:none;
+            width:auto;
+            height:auto;
+            padding:0;
+            white-space:nowrap;
+            color:var(--bg); /* letras con el color del fondo */
             font-weight:700;
             font-size:1.05rem;
-            box-shadow:0 8px 20px rgba(11,40,80,0.12);
         }
 
         h1{margin:0; font-size:1.4rem; color:var(--primary)}
@@ -111,9 +130,72 @@
             .actions{flex-direction:column}
             .btn{width:100%; justify-content:center}
         }
+
+      
+        .whatsapp-btn{
+            position:fixed;
+            right:1.25rem;
+            bottom:1.25rem;
+            width:72px; 
+            height:72px; 
+            border-radius:50%;
+            background:#25D366;
+            color:#ffffff;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            text-decoration:none;
+            font-size:28px; 
+            box-shadow:0 10px 26px rgba(37,211,102,0.18);
+            z-index:1000;
+            transition:transform .12s ease, box-shadow .12s ease;
+        }
+        .whatsapp-btn:hover{transform:translateY(-4px)}
+        .whatsapp-btn i{font-size:34px; line-height:1; color:inherit;}
+        @media (max-width:420px){
+            .whatsapp-btn{right:0.75rem;bottom:0.75rem;width:64px;height:64px;font-size:26px}
+            .whatsapp-btn i{font-size:30px}
+        }
+        /* Imagen debajo del texto principal */
+        .hero-image{
+            display:block;
+            width:100%;
+            max-width:720px;
+            margin:1rem auto 0;
+            border-radius:8px;
+            box-shadow:0 8px 24px rgba(16,24,40,0.06);
+            object-fit:cover;
+        }
     </style>
 </head>
 <body>
+    <!-- HEADER: marca y navegación principal -->
+    <!--
+         - `div.brand` contiene el título o logo del proyecto.
+         - `nav.nav` son los enlaces principales: Hola, Register, Login.
+         Cambia textos o hrefs aquí para personalizar la navegación.
+    -->
+    <header class="header" role="banner">
+        <div class="brand" style="justify-content:flex-start;gap:0.75rem">
+            <div class="logo" aria-label="Salon Software 5to" title="Salon Software 5to">Salon Software 5to</div>
+            <div>
+                <strong style="color:var(--primary);">Inicio</strong>
+            </div>
+        </div>
+
+    <!-- Navegación principal (actualizar enlaces si necesario) -->
+    <nav class="nav" role="navigation" aria-label="Menú principal">
+            <a class="btn btn-ghost" href="hola.html" title="Hola">Hola</a>
+            <a class="btn btn-outline" href="register.html" title="Register">Register</a>
+            <a class="btn btn-primary" href="login.html" title="Login">Login</a>
+        </nav>
+    </header>
+
+    <!-- MAIN: tarjeta principal con contenido central -->
+    <!--
+        - `.card` es la vista principal que contiene título y las acciones principales.
+        - Para cambiar el contenido que se muestra en la página de inicio, edita esta sección.
+    -->
     <main class="card" role="main" aria-labelledby="titulo">
         <div class="brand">
             <div>
@@ -122,7 +204,8 @@
             </div>
         </div>
 
-        <div class="actions" role="navigation" aria-label="Opciones principales">
+    <!-- Acciones principales: botones rápidos para navegar a páginas importantes -->
+    <div class="actions" role="navigation" aria-label="Opciones principales">
             <a class="btn btn-primary" href="hola.html" title="Ir a Hola">
                 <span aria-hidden="true" style="font-size:18px;line-height:1">👋</span>
                 <span>Hola</span>
@@ -140,7 +223,22 @@
             </a>
         </div>
 
+    <!-- Nota informativa debajo de las acciones -->
     <p class="note">Puedes registrarte o iniciar sesión usando los botones. También puedes entrar a "Hola".</p>
+
+    <!-- Imagen ilustrativa (hero-image): reemplaza `src` por una ruta local si quieres usar un archivo propio -->
+    <img class="hero-image" src="desarrollo-de-software-senati-1800-x-1190_0.jpg" alt="Personas trabajando en computadoras" />
+
     </main>
+    
+<!-- BOTÓN FLOTANTE DE WHATSAPP -->
+<!-- Reemplaza el número en el href por tu número real sin + ni espacios (p.ej. 977392094) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<a href="https://wa.me/1234567890?text=hello+123" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="WhatsApp">
+    <!-- Icono provisto por Bootstrap Icons; si prefieres SVG inline lo cambiamos -->
+    <i class="bi bi-whatsapp" aria-hidden="true"></i>
+</a>
+
 </body>
-</html>
+</html> 
