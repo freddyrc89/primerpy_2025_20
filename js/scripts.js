@@ -1,6 +1,6 @@
 // scripts.js - Archivo JavaScript esencial para animaciones
 
-// ===== AOS (Animate On Scroll) - Implementación básica =====
+// ===== AOS (Animate On Scroll) =====
 class SimpleAOS {
     constructor() {
         this.elements = [];
