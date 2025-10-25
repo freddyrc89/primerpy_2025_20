@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pagina de Inicio</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background-color: #f5f5f5;
+            }
+            .container {
+                margin-top: 50px;
+                padding: 20px;
+                background: white;
+                border-radius: 8px;
+                display: inline-block;
+                width: 300px;
+            }
+            .modal{
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0; 
+                top: 0;
+                width: 100%; 
+                height: 100%;
+                background-color: antiquewhite;
+            }
+            .modal-content{
+                background: white;
+                margin: 10%;
+                padding: 20px;
+                border-radius: 5px;
+                width: 300px;
+                text-align: left;
+            }
+            .close{
+                float: right;
+                font-size: 8px 12px;
+                background-color: cyan;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button{
+                margin: 5px;
+                padding: 8px 14px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                background-color: #008CBA;
+                color: white;
+            }
+            button:hover {
+                background-color: #005f73;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <button id="btnEncuesta">Abrir Encuesta</button>
+            <a href="calculadora.html"><button>Ir a Calculadora</button></a>
+        </div>
+        <!--modal-->
+    <div id="modalEncuesta" class="modal">
+        <div class="modal-content">
+            <a href="dashboard.html"><button>Volver al Inicio</button></a>
+            <h3>Encuesta</h3>
+            <form id="formEncuesta">
+                <label>1. ¿Que te parece el nuevo sistema que estamos usando?</label><br>
+                <input type="text" name="pregunta1" required><br><br>
+                <label>2. ¿Que mejorarias para que el sistema no se te sean tan dificil de sobrellevar?</label><br>
+                <input type="text" name="pregunta2" required><br><br>
+                <button type="submit">Confirmar</button><br>
+                
+            </form>
+        </div>
+    </div>
+    <script>
+        const modal = document.getElementById('modalEncuesta');
+        const btn = document.getElementById('btnEncuesta');
+        const cerrar = document.getElementById('cerrarModal');
+        const form = document.getElementById('formEncuesta');
+        btn.onclick = () => modal.style.display = 'block';
+        cerrar.onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => {if (e.target == modal) modal.style.display = 'none';}
+        form. onsubmit = (e)=>{
+            e.preventDefault();
+            alert("Gracias por llenar el formulario");
+            modal.style.display = 'none';
+            form.reset();
+        }
+    </script>
+    </body>
+</html>
