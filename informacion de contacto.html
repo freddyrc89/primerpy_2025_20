@@ -35,16 +35,38 @@
         button:hover{
             background-color: burlywood;
         }
+        
+        
+        #contacto { 
+            background-color: #f0f0f0; 
+            padding: 20px; 
+            border-top: 1px solid #ccc;
+            text-align: center;
+        }
+        #contacto p, #contacto address, #contacto a { 
+            font-size: 0.9em;
+            display: block; 
+            margin: 5px 0;
+        }
+        
     </style>
 </head>
 <body>
     <p>Hola, soy una linea y mi creador es <b>Freddy</b>. Ahora sigues tú</p>
     <button>Hola, soy un boton y mi creador es <b>GPT4-o</b>. Ahora sigues tú</button>
-     Hola, soy una linea y mi credora es <h3>Jennifer</h3>.
+      Hola, soy una linea y mi credora es <h3>Jennifer</h3>.
     <p>Hola , soy otra linea y era mentira lo de la funcionabilidad critica jijija.</p>
     <b>La <i>disciplina y el orden</i>son importantes en los proyectos de TI</b>
     <button id="btnEncuesta">Abrir Encuesta</button>
-    <!--modal-->
+    
+    <section id="contacto"> 
+        <h2>Contáctanos</h2> 
+        <p>¿Tienes preguntas? Envíanos un mensaje:</p>
+        
+        <a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a> 
+        <a href="tel:5551234567">Teléfono: (555) 123-4567</a> 
+        <address>Calle Principal #123, Ciudad Ejemplo</address> 
+    </section>
     <div id="modalEncuesta" class="modal">
         <div class="modal-content">
             <span class="close" id="cerrarModal">&times;</span>
@@ -58,6 +80,7 @@
             </form>
         </div>
     </div>
+
     <script>
         const modal = document.getElementById('modalEncuesta');
         const btn = document.getElementById('btnEncuesta');
@@ -73,7 +96,5 @@
             form.reset();
         }
     </script>
-
 </body>
 </html>
-

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modo Oscuro | Proyecto Demo</title>
+  <style>
+    :root {
+      --color-bg-light: #ffffff;
+      --color-text-light: #222;
+      --color-bg-dark: #1a1a1a;
+      --color-text-dark: #f2f2f2;
+      --color-accent: #007bff;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--color-bg-light);
+      color: var(--color-text-light);
+      margin: 0;
+      padding: 2rem;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    button {
+      background-color: var(--color-accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    /* 🌙 Estilo modo oscuro */
+    body.dark-mode {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-dark);
+    }
+
+    body.dark-mode button {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌙 Modo Oscuro Activable</h1>
+  <div class="container">
+    <p>Este es un ejemplo simple de cómo implementar modo oscuro con HTML, CSS y JS.</p>
+    <button id="toggleDark">Alternar modo oscuro</button>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById("toggleDark");
+    const body = document.body;
+
+    // Verificar si hay preferencia guardada
+    if (localStorage.getItem("darkMode") === "true") {
+      body.classList.add("dark-mode");
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
+    });
+  </script>
+</body>
+</html>
