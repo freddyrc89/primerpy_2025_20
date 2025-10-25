@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas Funcional</title>
+    
+    <style>
+        /* CSS Básico para el Estilo */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        #app {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #entrada-tarea {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #nuevaTarea {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #agregarBtn {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #agregarBtn:hover {
+            background-color: #0056b3;
+        }
+
+        #listaDeTareas {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tarea-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 8px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .tarea-item:hover {
+            background-color: #dee2e6;
+        }
+
+        .texto-tarea {
+            flex-grow: 1;
+            margin-right: 15px;
+        }
+
+        .fecha-guardado {
+            font-size: 0.8em;
+            color: #6c757d;
+            margin-right: 15px;
+        }
+
+        .eliminar-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <h1>Mi Lista de Tareas Pendientes </h1>
+
+        <div id="entrada-tarea">
+            <input type="text" id="nuevaTarea" placeholder="Escribe tu nueva tarea aquí...">
+            <button id="agregarBtn">Agregar Tarea</button>
+        </div>
+
+        <h2>Tareas Guardadas</h2>
+        <ul id="listaDeTareas">
+            </ul>
+    </div>
+
+    <script>
+        function agregarTarea() {
+            const input = document.getElementById('nuevaTarea');
+            const textoTarea = input.value.trim(); 
+            const lista = document.getElementById('listaDeTareas');
+
+            if (textoTarea === "") {
+                alert("Por favor, escribe una tarea antes de agregarla.");
+                return;
+            }
+
+            const ahora = new Date();
+            const fechaHora = ahora.toLocaleString('es-ES', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+
+            const nuevaLi = document.createElement('li');
+            nuevaLi.classList.add('tarea-item');
+
+            nuevaLi.innerHTML = `
+                <span class="texto-tarea">${textoTarea}</span>
+                <span class="fecha-guardado">${fechaHora}</span>
+                <button class="eliminar-btn">Eliminar</button>
+            `;
+
+            nuevaLi.querySelector('.eliminar-btn').addEventListener('click', function() {
+                nuevaLi.remove();
+            });
+
+            lista.prepend(nuevaLi);
+
+            input.value = '';
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('agregarBtn').addEventListener('click', agregarTarea);
+
+            document.getElementById('nuevaTarea').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    agregarTarea();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
