@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Notas con Guardado Local</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        /* Estilos del Formulario */
+        #notaFormulario {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #1e7e34;
+        }
+        /* Estilos de la Lista de Notas */
+        #listaNotas {
+            margin-top: 20px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+        .nota {
+            background-color: #e9f7ef; /* Un color suave para las notas */
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            border-left: 5px solid #28a745; /* Barra de color para destacar */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .nota h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .nota p {
+            margin: 5px 0;
+        }
+        .nota small {
+            display: block;
+            text-align: right;
+            color: #777;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body onload="cargarNotas()">
+
+    <div class="container">
+        <h2>Gestor de Notas Local</h2>
+
+        <form id="notaFormulario" onsubmit="guardarNota(event)">
+            <h3>Nueva Nota</h3>
+            <div class="form-group">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="contenido">Contenido:</label>
+                <textarea id="contenido" name="contenido" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="autor">Autor (Opcional):</label>
+                <input type="text" id="autor" name="autor">
+            </div>
+            
+            <button type="submit">Guardar Nota</button>
+        </form>
+
+        <div id="listaNotas">
+            <h3>Tus Notas Guardadas</h3>
+            <p id="mensajeVacio">Aún no hay notas guardadas. ¡Crea una!</p>
+        </div>
+    </div>
+
+    <script>
+        // Clave para guardar el array de notas en localStorage
+        const NOTAS_KEY = 'misNotasLocales';
+
+        /**
+         * Obtiene las notas del localStorage.
+         * Devuelve un array vacío si no hay notas.
+         */
+        function obtenerNotas() {
+            const notasJSON = localStorage.getItem(NOTAS_KEY);
+            return notasJSON ? JSON.parse(notasJSON) : [];
+        }
+
+        /**
+         * Guarda el array de notas en localStorage.
+         */
+        function guardarNotas(notas) {
+            localStorage.setItem(NOTAS_KEY, JSON.stringify(notas));
+        }
+
+        /**
+         * Maneja el envío del formulario: crea la nota, la guarda y actualiza la lista.
+         */
+        function guardarNota(event) {
+            event.preventDefault(); // Previene la recarga de la página
+
+            const titulo = document.getElementById('titulo').value;
+            const contenido = document.getElementById('contenido').value;
+            const autor = document.getElementById('autor').value || 'Anónimo';
+            const fecha = new Date().toLocaleString();
+
+            const nuevaNota = {
+                titulo,
+                contenido,
+                autor,
+                fecha
+            };
+
+            // 1. Obtener la lista existente
+            const notas = obtenerNotas();
+
+            // 2. Agregar la nueva nota al inicio del array
+            notas.unshift(nuevaNota);
+
+            // 3. Guardar el array actualizado en localStorage
+            guardarNotas(notas);
+
+            // 4. Actualizar la interfaz y limpiar el formulario
+            mostrarNotas(notas);
+            document.getElementById('notaFormulario').reset();
+
+            alert('¡Nota guardada con éxito en tu navegador!');
+        }
+
+        /**
+         * Renderiza la lista de notas en el HTML.
+         */
+        function mostrarNotas(notas) {
+            const listaNotasDiv = document.getElementById('listaNotas');
+            // Elimina todas las notas existentes antes de volver a dibujar
+            listaNotasDiv.innerHTML = '<h3>Tus Notas Guardadas</h3>';
+
+            if (notas.length === 0) {
+                listaNotasDiv.innerHTML += '<p id="mensajeVacio">Aún no hay notas guardadas. ¡Crea una!</p>';
+                return;
+            }
+
+            notas.forEach(nota => {
+                const notaDiv = document.createElement('div');
+                notaDiv.className = 'nota';
+                
+                notaDiv.innerHTML = `
+                    <h3>${nota.titulo}</h3>
+                    <p>${nota.contenido.replace(/\n/g, '<br>')}</p>
+                    <small>Por: ${nota.autor} el ${nota.fecha}</small>
+                `;
+                
+                listaNotasDiv.appendChild(notaDiv);
+            });
+        }
+
+        /**
+         * Función que se llama al cargar la página para mostrar las notas guardadas.
+         */
+        function cargarNotas() {
+            const notas = obtenerNotas();
+            mostrarNotas(notas);
+        }
+    </script>
+
+</body>
+</html>
